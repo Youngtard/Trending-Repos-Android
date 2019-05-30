@@ -4,9 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.youngtard.githubtrendingandroid.MainActivity
 import com.youngtard.githubtrendingandroid.R
 import com.youngtard.githubtrendingandroid.RepoDetailActivity
 import com.youngtard.githubtrendingandroid.model.Repo
@@ -31,7 +29,7 @@ class ReposAdapter(reposData: List<Repo>): RecyclerView.Adapter<ReposAdapter.Rep
         fun bind(repo: Repo) {
             listItem.tv_repo_full_name.text = repo.full_name
             listItem.tv_repo_description.text = repo.description
-            listItem.tv_language.text = repo.language
+            listItem.tv_repo_language.text = repo.language
             listItem.tv_no_of_stars.text = repo.stargazers_count.toString()
 
             listItem.setOnClickListener {
@@ -42,6 +40,10 @@ class ReposAdapter(reposData: List<Repo>): RecyclerView.Adapter<ReposAdapter.Rep
                 intent.putExtra("repo_name", repo.name)
                 intent.putExtra("description", repo.description)
                 intent.putExtra("stars", repo.stargazers_count.toString())
+                intent.putExtra("language", repo.language)
+                intent.putExtra("forks", repo.forks.toString())
+                intent.putExtra("repo_url", repo.html_url)
+                intent.putExtra("user_profile_url", repo.owner.html_url)
 
 
                 listItem.context.startActivity(intent)

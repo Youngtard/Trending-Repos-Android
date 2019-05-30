@@ -31,6 +31,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/avatar" />
 
+
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
@@ -44,12 +46,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:text="JohnSundell"
             android:textColor="@color/githubBlack"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+        <View
+            android:id="@+id/line_seper"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/whity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
         <TextView
             android:id="@+id/tv_repo_name"
@@ -61,18 +73,20 @@
             android:textColor="@color/githubBlack"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+            app:layout_constraintTop_toBottomOf="@+id/line_seper" />
 
 
         <TextView
             android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/githubBlack"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:text="Description:"
+            android:textColor="@color/githubBlack"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repo_name" />
 
@@ -89,40 +103,87 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tv_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/githubBlack"
             android:layout_marginTop="8dp"
             android:text="Language:"
+            android:textColor="@color/githubBlack"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_stars" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Issues:"
-            android:textColor="@color/githubBlack"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/tv_forks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Pull Requests:"
+            android:text="Forks:"
             android:textColor="@color/githubBlack"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_language" />
+
+        <TextView
+            android:id="@+id/tv_link_to_repo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="8dp"
+            android:text="@string/link_to_repo"
+            android:textColor="@color/githubBlack"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forks" />
+
+        <TextView
+            android:id="@+id/tv_repo_link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="repo_link"
+            android:textColor="@color/githubBlack"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_link_to_repo"
+            app:layout_constraintTop_toTopOf="@+id/tv_link_to_repo" />
+
+        <TextView
+            android:id="@+id/tv_link_to_user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginBottom="8dp"
+            android:text="@string/link_to_user"
+            android:textColor="@color/githubBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_user_profile_link" />
+
+        <TextView
+            android:id="@+id/tv_user_profile_link"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="user_profile_link"
+            android:textColor="@color/githubBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_link_to_user_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_link" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

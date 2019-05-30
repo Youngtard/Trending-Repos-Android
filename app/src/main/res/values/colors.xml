@@ -6,6 +6,7 @@
     <color name="githubGreen"></color>
     <color name="githubBlue">#4078c0</color>
     <color name="kotlin">#F9A857</color>
+    <color name="java">#5382a1</color>
     <color name="whity">#d7d7d8</color>
     <color name="githubBlack">#333</color>
 </resources>

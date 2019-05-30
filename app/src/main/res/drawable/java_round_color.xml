@@ -2,6 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item android:drawable="@drawable/ic_lens_white_24dp"/>
-    <item android:drawable="@drawable/circle"/>
+    <item android:drawable="@drawable/java_circle"/>
 
 </layer-list>

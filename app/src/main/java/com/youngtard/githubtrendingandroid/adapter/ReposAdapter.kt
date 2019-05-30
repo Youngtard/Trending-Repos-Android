@@ -34,6 +34,12 @@ class ReposAdapter(reposData: MutableList<Repo>): RecyclerView.Adapter<ReposAdap
             listItem.tv_repo_language.text = repo.language
             listItem.tv_no_of_stars.text = repo.stargazers_count.toString()
 
+            if (listItem.tv_repo_language.text == "Kotlin") {
+                listItem.img_language_color.setImageResource(R.drawable.kotlin_round_color)
+            } else {
+                listItem.img_language_color.setImageResource(R.drawable.java_round_color)
+            }
+
             listItem.setOnClickListener {
                 val intent = Intent(listItem.context, RepoDetailActivity::class.java)
 

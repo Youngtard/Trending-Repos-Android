@@ -2,6 +2,7 @@ package com.youngtard.githubtrendingandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
@@ -30,6 +31,8 @@ class TrendingReposActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Repos"
 
+        progress_bar.visibility = View.VISIBLE
+
         val reposLayoutManager = LinearLayoutManager(applicationContext)
 
         rv_list_of_trending_repos.apply {
@@ -54,6 +57,8 @@ class TrendingReposActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        progress_bar.visibility = View.VISIBLE
+
 
         val reposInResponse: MutableList<Repo> = arrayListOf()
 
@@ -63,6 +68,8 @@ class TrendingReposActivity : AppCompatActivity() {
         kotlinReposCall.enqueue(object: Callback<Resp> {
             override fun onResponse(call: Call<Resp>, response: Response<Resp>) {
                 if (response.isSuccessful) {
+                    progress_bar.visibility = View.GONE
+
                     val resp =  response.body()
 //                    val items = resp.items
 //                    reposAdapter.reposData =  items.sortedBy{repo -> repo.name}
@@ -86,6 +93,8 @@ class TrendingReposActivity : AppCompatActivity() {
         javaReposCall.enqueue(object: Callback<Resp> {
             override fun onResponse(call: Call<Resp>, response: Response<Resp>) {
                 if (response.isSuccessful) {
+                    progress_bar.visibility = View.GONE
+
                     val resp =  response.body()
 //                    val items = resp.items
 //                    reposAdapter.reposData =  items.sortedBy{repo -> repo.name}

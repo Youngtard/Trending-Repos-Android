@@ -13,16 +13,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val user = "youngtard"
-        val repo = "/cloupad"
-        val formatedText = "<b>$user</b>$repo"
-
-        button.setOnClickListener {
-
-
-            textView.text = HtmlCompat.fromHtml(formatedText, HtmlCompat.FROM_HTML_MODE_LEGACY)
-        }
+//
+//        val user = "youngtard"
+//        val repo = "/cloupad"
+//        val formatedText = "<b>$user</b>$repo"
+//
+//        button.setOnClickListener {
+//
+//
+//            textView.text = HtmlCompat.fromHtml(formatedText, HtmlCompat.FROM_HTML_MODE_LEGACY)
+//        }
 
     }
 

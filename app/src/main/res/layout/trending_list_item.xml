@@ -9,20 +9,22 @@
     >
 
     <TextView
-        android:id="@+id/repo_full_name"
+        android:id="@+id/tv_repo_full_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/githubBlue"
         android:fontFamily="@font/simonetta"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@sample/repo" />
 
     <TextView
-        android:id="@+id/repo_description"
+        android:id="@+id/tv_repo_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,7 +36,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repo_full_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_repo_full_name"
         tools:text="@tools:sample/lorem/random" />
 
     <ImageView
@@ -48,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_language"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

@@ -44,6 +44,7 @@ class TrendingReposActivity : AppCompatActivity() {
 
     }
 
+
     override fun onStart() {
         super.onStart()
 
@@ -54,14 +55,20 @@ class TrendingReposActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        val reposInResponse: MutableList<Repo> = arrayListOf()
+
         val kotlinReposCall = githubApiService.getTrendingKotlin()
+        val javaReposCall = githubApiService.getTrendingJava()
 
         kotlinReposCall.enqueue(object: Callback<Resp> {
             override fun onResponse(call: Call<Resp>, response: Response<Resp>) {
                 if (response.isSuccessful) {
                     val resp =  response.body()
-                    Toast.makeText(applicationContext, resp!!.items[0].full_name, Toast.LENGTH_SHORT).show()
-                    reposAdapter.reposData =  resp.items
+//                    val items = resp.items
+//                    reposAdapter.reposData =  items.sortedBy{repo -> repo.name}
+                    reposInResponse.addAll(resp!!.items)
+                    reposAdapter.reposData = reposInResponse.sortedByDescending{ repo -> repo.stargazers_count }
+
                 } else {
                     Toast.makeText(applicationContext, response.code().toString(), Toast.LENGTH_SHORT).show()
 
@@ -75,6 +82,31 @@ class TrendingReposActivity : AppCompatActivity() {
 
             }
         })
+
+        javaReposCall.enqueue(object: Callback<Resp> {
+            override fun onResponse(call: Call<Resp>, response: Response<Resp>) {
+                if (response.isSuccessful) {
+                    val resp =  response.body()
+//                    val items = resp.items
+//                    reposAdapter.reposData =  items.sortedBy{repo -> repo.name}
+                    reposInResponse.addAll(resp!!.items)
+                    reposAdapter.reposData = reposInResponse.sortedByDescending{ repo -> repo.stargazers_count  }
+
+                } else {
+                    Toast.makeText(applicationContext, response.code().toString(), Toast.LENGTH_SHORT).show()
+
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<Resp>, t: Throwable) {
+                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_SHORT).show()
+
+            }
+        })
+
+//        reposAdapter.reposData = reposInResponse.sortedBy { repo -> repo.name  }
 
 
     }

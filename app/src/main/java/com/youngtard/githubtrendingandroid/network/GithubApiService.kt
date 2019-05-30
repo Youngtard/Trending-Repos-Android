@@ -9,6 +9,9 @@ import retrofit2.http.QueryMap
 
 interface GithubApiService {
 
-    @GET("search/repositories?q=topic:android+language:kotlin&sort=stars")
+    @GET("search/repositories?q=topic:android+language:kotlin")
     fun getTrendingKotlin(): Call<Resp>
+
+    @GET("search/repositories?q=topic:android+language:java")
+    fun getTrendingJava(): Call<Resp>
 }

@@ -10,7 +10,7 @@ import com.youngtard.githubtrendingandroid.RepoDetailActivity
 import com.youngtard.githubtrendingandroid.model.Repo
 import kotlinx.android.synthetic.main.trending_list_item.view.*
 
-class ReposAdapter(reposData: List<Repo>): RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {
+class ReposAdapter(reposData: MutableList<Repo>): RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReposViewHolder {
         val vh = LayoutInflater.from(parent.context).inflate(R.layout.trending_list_item, parent, false)
@@ -21,12 +21,14 @@ class ReposAdapter(reposData: List<Repo>): RecyclerView.Adapter<ReposAdapter.Rep
     override fun getItemCount() = reposData.size
 
     override fun onBindViewHolder(holder: ReposViewHolder, position: Int) {
+
         holder.bind(reposData[position])
     }
 
     class ReposViewHolder(val listItem: View): RecyclerView.ViewHolder(listItem) {
 
         fun bind(repo: Repo) {
+
             listItem.tv_repo_full_name.text = repo.full_name
             listItem.tv_repo_description.text = repo.description
             listItem.tv_repo_language.text = repo.language
@@ -53,8 +55,9 @@ class ReposAdapter(reposData: List<Repo>): RecyclerView.Adapter<ReposAdapter.Rep
     }
 
     var reposData: List<Repo> = reposData
-        set(tasks) {
-            field = tasks
+        set(repos) {
+            field = repos
             notifyDataSetChanged()
+
         }
 }
